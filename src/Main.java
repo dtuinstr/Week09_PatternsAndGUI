@@ -32,6 +32,7 @@ public class Main
 
     // Better (unless you _need_ the actual array index):
     // implementation agnostic.
+    // Note that the for-each loop has an implicit iterator.
     public static void iterator_forEach() {
         System.out.println("----- for each loop -----");
         for (String cityName : cityNames) {
