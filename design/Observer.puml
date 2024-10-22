@@ -1,0 +1,23 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+skinparam classAttributeIconSize 0
+hide empty members
+
+Subject o. Observer
+Observer <|.. ConcreteObserver
+
+class Subject {
+    - observers : Collection
+    +attach(o:Observer)
+}
+
+interface Observer {
+    + {abstract} notify()
+}
+
+class ConcreteObserver {
+    + notify()
+}
+
+@enduml

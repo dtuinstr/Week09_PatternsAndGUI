@@ -1,0 +1,14 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+skinparam classAttributeIconSize 0  'use +-# for visibility tag
+hide empty members
+
+interface Iterator<T> {
+    {abstract} getCurrent() : T
+    {abstract} hasNext() : boolean
+    {abstract} next() : void
+    {abstract} removeCurrent() : void <<optional>>
+}
+
+@enduml

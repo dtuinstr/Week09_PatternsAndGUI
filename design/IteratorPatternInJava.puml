@@ -1,0 +1,35 @@
+@startuml
+'https://plantuml.com/class-diagram
+skinparam classAttributeIconSize 0
+hide empty members
+
+Client ..> Collection
+Client ..> Iterator
+Collection <|.. ConcreteCollection
+Iterator <|.. ConcreteIterator
+ConcreteCollection .o ConcreteIterator
+
+interface Collection<T> {
+    {abstract} createIterator() : Iterator<T>
+    {abstract} ...()
+}
+
+class ConcreteCollection<T> {
+    + createIterator() : Iterator<T>
+    ...()
+}
+
+interface Iterator<T> {
+    {abstract} hasNext() : boolean
+    {abstract} next() : T
+    {abstract} remove() : void <<optional>>
+}
+
+class ConcreteIterator<T> {
+    +hasNext() : boolean
+    +next() : T
+    +remove() : void <<optional>>
+}
+
+
+@enduml

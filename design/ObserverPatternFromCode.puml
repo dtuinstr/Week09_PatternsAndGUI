@@ -1,0 +1,26 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+skinparam classAttributeIconSize 0
+hide empty members
+
+JButton o. ActionListener
+ActionListener <|.. AnonymousConcreteClass
+
+class JButton {
+    - actionListeners : Collection
+    + addActionListener(ActionListener)
+}
+
+interface ActionListener {
+    {abstract} actionPerformed()
+}
+class AnonymousConcreteClass {
+    + actionPerformed()
+}
+note left of AnonymousConcreteClass::actionPerformed
+    Lambda expression substituted in
+    for the method implementation
+end note
+
+@enduml
