@@ -1,0 +1,35 @@
+@startuml
+'https://plantuml.com/class-diagram
+skinparam classAttributeIconSize 0
+hide empty members
+
+County .> CountyStringifier
+CountyNameEstStringifier ..|> CountyStringifier
+Main ..> County
+Main .> CountyNameEstStringifier
+
+class County {
+    + customToString(cs:CountyStringifier) : String
+}
+note bottom of County
+    To do its job, customToString() calls
+    stringify() method of its cs paramter.
+end note
+
+interface CountyStringifier {
+    {abstract} stringify(County c)
+}
+
+class CountyNameEstStringifier {
+    + stringify(County c)
+}
+
+class Main {
+}
+note top of Main
+    Creates a concrete CountyStringifier object
+    and passes it as the argument in the call
+    to customToString(cs).
+end note
+
+@enduml

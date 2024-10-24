@@ -1,0 +1,36 @@
+@startuml
+'https://plantuml.com/class-diagram
+skinparam classAttributeIconSize 0
+hide empty members
+
+Context .> Strategy
+ConcreteStrategy ..|> Strategy
+Client ..> Context
+Client .> ConcreteStrategy
+
+class Context {
+}
+note bottom of Context
+    Context calls doWork() through
+    the Strategy interface.
+end note
+
+interface Strategy {
+    {abstract} doWork()
+}
+
+class ConcreteStrategy {
+    + doWork()
+}
+
+class Client {
+}
+note top of Client
+    Creates a ConcreteStrategy object
+    (or uses an existing one) and
+    passes it to Context through one
+    of Context's constructors or methods
+    that take a Strategy parameter.
+end note
+
+@enduml
